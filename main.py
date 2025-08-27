@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, HttpUrl
 import nanoid
+import os
 from database import supabase
 from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
@@ -43,8 +44,8 @@ def encurtar_url(url: URLBase):
         # Em caso de erro no banco de dados
         raise HTTPException(status_code=500, detail="Erro ao se comunicar com o banco de dados.")
 
-    # ATENÇÃO: Substitua pelo seu domínio quando for fazer o deploy
-    short_url = f"http://localhost:8000/{short_code}"
+    base_url = os.getenv("BASE_URL", "http://localhost:8000")
+    short_url = f"{base_url}/{short_code}"
 
     return {"short_url": short_url}
 
