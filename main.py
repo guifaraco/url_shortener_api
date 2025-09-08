@@ -9,7 +9,8 @@ from fastapi.middleware.cors import CORSMiddleware
 origins = [
     "https://linkshrink-two.vercel.app",
     "http://localhost",
-    "http://127.0.0.1:5500"
+    "http://127.0.0.1:5500",
+    "http://localhost:3000"
 ]
 
 class URLBase(BaseModel):
