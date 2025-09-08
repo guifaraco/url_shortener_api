@@ -7,9 +7,9 @@ from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 origins = [
+    "https://linkshrink-two.vercel.app",
     "http://localhost",
-    "http://127.0.0.1:5500",
-    # "https://seu-frontend.vercel.app",
+    "http://127.0.0.1:5500"
 ]
 
 class URLBase(BaseModel):
